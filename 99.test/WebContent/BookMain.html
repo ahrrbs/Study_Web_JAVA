@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>[췍췍췍췍]</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="jquery-3.4.1.js"></script>
+<script type="text/javascript">
+/* $(document).ready(function() {
+	//정규 표현식
+	var regIsbn = /^\d{3}[\-]\d{2}[\-]\d{4}[\-]\d{3}[\-]\d{1}$/ // 숫자 3글자 - 2글자 - 4글자 - 3글자 - 1글자
+	
+	
+	$("#submit").click(function() { //버튼 눌렀을때
+		//ISBN 유효성 검사
+		if(!regIsbn.test(isbn.value)) {
+			alert("ISBN 형식이 잘못되었습니다." + "\nISBN은 숫자로 구성되어 있으며 XXX-XX-XXXX-XXX-X 형식으로 입력해주세요.");
+			$("#isbn").val("");
+			$("#isbn").focus();
+			return false;
+		}
+		
+		var submitConfirm = confirm("정말 입력하시겠습니까?");
+		if(submitConfirm) {
+			return true;
+		} else {
+			return false;
+		}
+	}); // submit click()
+	
+	//취소 버튼
+	$("#cancel").click(function() {
+		var cancelConfirm = confirm("정말 취소하시겠습니까?");
+		if(cancelConfirm) {
+			return true;
+		} else {
+			return false;
+		}
+	}); // cancel click()
+	
+	$("#isbnCk").click(function() {
+		if(isbn.value = null){
+			alert("isbn이 입력이 안되어있습니다.");
+		}
+		location.href="ck.do";
+	}); // cancel click()
+	
+	
+}); // ready() */
+
+
+
+function formChk() {
+	
+	var regIsbn = /^\d{3}[\-]\d{2}[\-]\d{4}[\-]\d{3}[\-]\d{1}$/ // 숫자 3글자 - 2글자 - 4글자 - 3글자 - 1글자
+	
+	if(!regIsbn.test(isbn.value)) {
+		alert("ISBN 형식이 잘못되었습니다." + "\nISBN은 숫자로 구성되어 있으며 XXX-XX-XXXX-XXX-X 형식으로 입력해주세요.");
+		$("#isbn").val("");
+		$("#isbn").focus();
+		return false;
+	} else {
+		if(confirm("입력 가능??")){
+			return true;
+		} 
+		return false;
+	}
+	
+	return false;
+}
+function formCancel() {
+	if(confirm("취소 가능??")){
+		return true;
+	}else {
+		return false;
+	}
+}
+
+function isbnCk(){
+	var isbn = document.getElementById("isbn").value;
+	//alert(isbn);
+	location.href = "ck.do?isbn=" + isbn;
+}
+
+</script>
+<style type="text/css">
+
+table {
+	height: 300px;
+}
+.in {
+	height : 18px;
+}
+
+</style>
+</head>
+<body>
+<div align="center">
+<form action="is.do" method="post" onSubmit="return formChk();" onreset="return formCancel();">
+<h2>[도서 정보 입력]</h2>
+<table border = "1">
+	<tr>
+		<th>제목</th>
+		<td><input type="text" name="title" required="required" class="in" /></td>
+	</tr>
+	<tr>
+		<th>저자</th>
+		<td><input type="text" name="name" required="required" class="in" /></td>
+	</tr>
+	<tr>
+		<th>ISBN</th>
+		<td><input type="text" name="isbn" required="required" 
+				   placeholder="xxx-xx-xxxx-xxx-x"	 id="isbn" class="in" />
+			<input type="button" value="중복(미완성)" onclick="isbnCk()">
+		</td>
+	</tr>
+	<tr>
+		<th>출판사</th>
+		<td><input type="text" name="comp" required="required" class="in" /></td>
+	</tr>
+	<tr>
+		<th>단가</th>
+		<td><input type="number" name="cost" required="required" class="in" min="0"/></td>
+	</tr>
+	<tr>
+		<th>수량</th>
+		<td><input type="number" name="su" required="required" class="in" min="0"/></td>
+	</tr>
+	<tr>
+		<th colspan="2">
+			<input type="submit" value="도서정보입력" id="submit" />
+			<input type="reset" value="입력정보취소" id="cancel"/>
+			<input type="button" value="전체도서보기" onclick="location.href='gals.do'"/>
+			
+		</th>
+		
+	</tr>
+
+</table>
+</form>
+</div>
+</body>
+</html>

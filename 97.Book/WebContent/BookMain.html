@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Book Main</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="jquery-3.4.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	
+}); // ready()
+
+function fnSubmit(){
+	var regIsbn = /^\d{3}[\-]\d{2}[\-]\d{4}[\-]\d{3}[\-]\d{1}$/; 
+	
+	var isbnCheck = 0;
+	var isbn= document.getElementById("isbn");
+	
+	//ISBN 유효성 검사
+	if(!regIsbn.test(isbn.value)) {
+		alert("ISBN 형식이 잘못되었습니다." + "\nISBN은 숫자로 구성되어 있으며 XXX-XX-XXXX-XXX-X 형식으로 입력해주세요.");
+		$("#isbn").val("");
+		$("#isbn").focus();
+		return false;
+	}else{
+		var submitConfirm = confirm("정말 입력하시겠습니까?");
+		if(submitConfirm) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}//fn
+
+function fnReset(){
+	var cancelConfirm = confirm("정말 취소하시겠습니까?");
+	if(cancelConfirm) {
+		return true;
+	} else {
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<div align="center">
+<h3>[도서 정보 입력]</h3>
+<form action="is.do" method="post" onsubmit="return fnSubmit()" onreset="return fnReset()">
+<table border="1">
+	<tr>
+		<th>도서명</th>
+		<td><input type="text" name="title" required="required" /></td>
+	</tr>
+	<tr>
+		<th>저자</th>
+		<td><input type="text" name="name" required="required"/></td>
+	</tr>
+	<tr>
+		<th>ISBN</th>
+		<td><input type="text" name="isbn" id="isbn" placeholder="???-??-????-???-?" required" /></td>
+	</tr>
+	<tr>
+		<th>출판사</th>
+		<td><input type="text" name="comp" required="required" /></td>
+	</tr>
+	<tr>
+		<th>단가</th>
+		<td><input type="number" name="cost" required="required" /></td>
+	</tr>
+	<tr>
+		<th>수량</th>
+		<td><input type="number" name="su" required="required" /></td>
+	</tr>
+	
+	<tr align="center">
+      <td colspan="3">
+         <input type="submit" value="정보입력" id="submit"/>
+         <input type="reset" value="정보취소" id="reset"/>
+         <input type="button" value="목록보기" onclick="location.href='gals.do'"/>
+      </td>
+   </tr>
+</table>
+</form>
+</div>
+</body>
+</html>

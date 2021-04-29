@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+function fnGo() {
+	var id="kim";
+	var pw="9999";
+	location.href="page.do?id=" + id + "&pw=" + pw;
+}
+
+</script>
+</head>
+<body>
+<!-- 정적페이지 전환 : Client에서 직접 요청하는 페이지 전환(마우스 클릭)  -->
+- 현재 페이지에서 회원 1명의 정보(id. pw)를</br>
+PageServlet.java(page.do)로 넘기시오</br>
+
+<form action="page.do" method="get">
+
+ID : <input type="text" name="id" value="DefaultID" required="required"></br>
+PW : <input type="password" name="pw" value="1234" required="required"></br>
+<input type="submit" value="페이지 전환A"/>
+</form>
+</br></br></br>
+
+<a href = "page.do?id=hong&pw=1234">페이지 전환B</a>
+</br></br></br>
+
+<button onclick="fnGo()">페이지 전환C</button>
+</br></br></br>
+
+<input type="button" value="페이지 전환D" onclick="location.href='page.do?id=park&pw=0000'"/>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+★ Servlet(Controller) 생성 
+	- servlet-api.jar(C:\tomcat\lib) => JRE > lib > exit : 복사&붙여넣기
+	- Java Resources > src > 마오 > new > Servlet : Servlet 마법사 실행
+	- 1. Java Package, Class Name 입력
+	- 2. URL mapping => /xx.do => <form action="xx.do" >
+	- 3. [v] service 체크 > finish
+	- 불필요한 코드 삭제  : import 문장, class 블럭, service 메소드 블럭은 삭제하지 말것!
+	- Servlet Mapping 수동설정 : WebContent > WEB-INF > web.xml
+		  <!--  Servlet Class 정의 -->
+ 			 <servlet>
+  				<display-name>Servlet Class Name</display-name>
+ 			 	<servlet-name>Servlet Class Name</servlet-name>
+  				<servlet-class>package.Servlet Class Name</servlet-class>
+ 			 </servlet>
+  
+		  <!-- Servlet Mapping 설정 -->
+ 			 <servlet-mapping>
+				<servlet-name>Servlet Class Name</servlet-name>  
+				<url-pattern>/xx.do</url-pattern>
+  			 </servlet-mapping>
+  			 
+  			 
+ =========================================================================
+ ○ HelloServlet
+ 	helloServlet.html -> hs.do -> web.xml -> HelloServlet.java

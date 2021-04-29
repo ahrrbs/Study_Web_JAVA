@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="jQuery/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+
+$(function() {
+	alert("table tag의 개수 : " + $("table").length);
+	
+	alert("table tr tag의 개수 : " + $("table tr").length);
+	
+	alert("table tr th tag의 개수 : " + $("table tr th").length);
+});
+
+
+</script>
+</head>
+<body>
+<table border="1">
+	<tr><th>AAA</th><td>BBB</td></tr>
+	<tr><th>CCC</th><td>DDD</td></tr>
+	<tr><th>EEE</th><td>FFF</td></tr>
+</table>
+</body>
+</html>

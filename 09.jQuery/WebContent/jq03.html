@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="jQuery/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+
+$(function() {
+	$("#btn").on("click", function() {
+		$("#display").empty();
+		$("#display").append("안녕하세요^^");
+	})
+	
+});
+
+
+</script>
+</head>
+<body>
+
+<button id="btn">클릭하세요!!!</button>
+<br/>
+<br/>
+<div id="display">
+클릭하시면 여기의 글자가 변경됩니다.
+</div>
+
+</body>
+</html>
