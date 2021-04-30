@@ -78,7 +78,7 @@ function fnSubmit() {
 	<tr>
 		<td colspan="2" align="center">
 			<input type="submit" value="수정하기"/>
-			<input type="reset" value="전체글 보기" onclick="location.href='board/board_list.jsp'"/>
+			<input type="button" value="전체글 보기" onclick="location.href='boardList.bo'"/>
 			<input type="button" value="로그인화면 " onclick="location.href='memberLogin.me'"/>
 		</td>
 	</tr>

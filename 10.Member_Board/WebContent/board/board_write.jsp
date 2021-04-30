@@ -55,7 +55,7 @@ function fnRest() {
 		<td colspan="2">
 			<input type="submit" value="글등록" />
 			<input type="reset" value="다시작성" />
-			<input type="button" value="목록보기"  onclick="location.href='board.bo'" />
+			<input type="button" value="목록보기"  onclick="location.href='boardList.bo'" />
 			
 		</td>
 	

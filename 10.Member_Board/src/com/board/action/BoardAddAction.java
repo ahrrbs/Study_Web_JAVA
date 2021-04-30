@@ -1,11 +1,13 @@
 package com.board.action;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.board.study.BoardDAO;
 import com.board.study.BoardDTO;
 import com.commons.action.Action;
 import com.commons.action.ActionForward;
@@ -24,7 +26,7 @@ public class BoardAddAction implements Action{
 		
 		//업로드한 파일이 저장되는 경로(공간, 주소, 위치)
 		String realFolder = ""; 
-		realFolder = "D:\\\\Study_Web\\\\workspace\\\\10.Member_Board\\\\WebContent\\\\boardupload";
+		realFolder = "D:\\Study_Web\\workspace\\10.Member_Board\\WebContent\\boardupload";
 		int filesize = 5 * 1024 * 1024; //최대용량 : 5MB
 		
 		MultipartRequest multi = null; //파일 업로드 처리
@@ -44,10 +46,18 @@ public class BoardAddAction implements Action{
 		System.out.println(dto.getBoard_content());
 		System.out.println(dto.getBoard_file());*/
 		
+		BoardDAO dao = new BoardDAO();
+		int succ = dao.boardInsert(dto);
 		
-		
-		
-		
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		if(succ > 0) {
+			out.println("<script>alert('등록성공');");
+			out.println("location.href='boardList.bo';</script>");
+		} else {
+			out.println("<script>alert('등록실패');");
+			out.println("location.href='boardList.bo';</script>");
+		}
 		
 		
 		return null;

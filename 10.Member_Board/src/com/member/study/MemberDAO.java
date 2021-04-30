@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import net.sf.json.JSONArray;
+
 public class MemberDAO {
 	//boardMember Table : mybatis FrameWork ▶ com.hanul.mybatis
 	private static SqlSessionFactory sqlMapper;
@@ -101,6 +103,16 @@ public class MemberDAO {
 		return succ;
 	}
 	
+	public String getJson() {
+		SqlSession session = sqlMapper.openSession();
+		List<MemberDTO> list = null;
+		list = session.selectList("getAllMember");
+		session.close();
+
+		JSONArray array = JSONArray.fromObject(list);
+		String json = array.toString();
+		return json;
+	}// getJson
 	
 	
 	

@@ -18,3 +18,11 @@ select * from memberBoard;
 alter table memberBoard
 	add constraint pk_board_id foreign key(Board_id)
     references boardMember(Member_id);
+    
+    
+    
+drop table memberboard;
+
+commit;
+
+DELETE FROM memberBoard;

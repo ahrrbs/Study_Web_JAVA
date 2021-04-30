@@ -1,6 +1,6 @@
 --회원관리
 create table boardMember(
-  Member_id varchar2(15) primary key not null,
+ 	Member_id varchar2(15) primary key not null,
 	Member_pw varchar2(15),
 	Member_name varchar2(15),
 	Member_age number,
