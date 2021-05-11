@@ -40,23 +40,33 @@ function fnDelete(board_num){
 	return false;
 }
 </script>
+<style type="text/css">
+	@import url("css/base.css");
+	
+	#read_td{
+		text-align: right;
+		padding-right: 5px;
+	}
+	
+</style>
 
 </head>
 <body>
 <div align="center">
-<h3>[상세 글 보기]</h3>
+<h3><%=dto.getBoard_id() %>님의 글입니다.</h3>
 <table border="1">
 	<tr>
 		<th>제목</th>
 		<td>${dto.board_subject}</td>
+		<th>조회수</th>
+		<td id="read_td">${dto.board_readcount}</td>
 	</tr>
 	<tr>
-		<th>조회수</th>
-		<td align="center">${dto.board_readcount}</td>
+		
 	</tr>
 	<tr>
 		<th>내용</th>
-		<td colspan="3" width="500">
+		<td colspan="3" width="500" id="content">
 			${fn:replace(dto.board_content, enter, "<br/>") }
 		</td>
 	</tr>
@@ -67,12 +77,12 @@ function fnDelete(board_num){
 				첨부된 파일이 없습니다.
 			</c:if>
 			<c:if test="${not empty dto.board_file}">
-				<a href="boardupload${dto.board_file}">${dto.board_file}</a>
+				<a href="boardupload/${dto.board_file}">${dto.board_file}</a>
 			</c:if>
 		</td>
 	</tr>
 	<tr>
-		<td colspan="4" align="center">
+		<td colspan="4" id="last_td">
 			<input type="button" value="답글쓰기" onclick="fnReply('${dto.board_num}')"/>
 			<input type="button" value="수정하기" onclick="fnModify('${dto.board_num}')"/>
 			<input type="button" value="삭제하기" onclick="fnDelete('${dto.board_num}')"/>

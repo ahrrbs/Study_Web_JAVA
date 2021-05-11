@@ -13,7 +13,10 @@ list = (ArrayList<BoardDTO>) request.getAttribute("list");
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	@import url("css/base.css");
 
+</style>
 </head>
 <body>
 <div align="center">
@@ -44,9 +47,9 @@ list = (ArrayList<BoardDTO>) request.getAttribute("list");
 	</c:if>
 	<tr align="center">
 		<td colspan="5">
-			<input type="button" value="로그아웃" onclick="loction.href='memberLogoutAction.me'"/>
-			<input type="button" value="글쓰기" onclick="loction.href='boardWrite.bo'"/>
-			<input type="button" value="목록보기" onclick="loction.href='boardList.bo'"/>
+			<input type="button" value="로그아웃" onclick="location.href='memberLogoutAction.me'"/>
+			<input type="button" value="글쓰기" onclick="location.href='boardWrite.bo'"/>
+			<input type="button" value="목록보기" onclick="location.href='boardList.bo'"/>
 			
 		</td>
 	</tr>

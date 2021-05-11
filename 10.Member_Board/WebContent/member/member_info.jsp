@@ -15,13 +15,8 @@ MemberDTO dto = (MemberDTO) request.getAttribute("dto");
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-
-
-td {
-	width: 300px;
-	text-align: center;
-}
-
+	@import url("css/base.css");
+	
 </style>
 </head>
 <body>

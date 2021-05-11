@@ -9,6 +9,10 @@ BoardDTO dto = (BoardDTO) request.getAttribute("dto");
 <head>
 <meta charset="UTF-8">
 <title>Board Modify</title>
+<style type="text/css">
+	@import url("css/base.css");
+
+</style>
 </head>
 <body>
 <div align="center">
@@ -29,9 +33,9 @@ BoardDTO dto = (BoardDTO) request.getAttribute("dto");
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center">
+		<td colspan="2" id="last_td">
 		<input type="submit" value="수정하기" />
-		<input type="reset" value="초기화하기" />
+		<input type="reset" value="초기화" />
 		<input type="button" value="목록보기" onclick="location.href='boardList.bo'"/>
 		</td>
 	</tr>

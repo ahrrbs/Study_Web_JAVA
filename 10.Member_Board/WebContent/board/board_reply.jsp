@@ -10,6 +10,9 @@ String id = (String) session.getAttribute("id");
 <head>
 <meta charset="UTF-8">
 <title>Board Reply</title>
+<style type="text/css">
+ @import url("css/base.css");
+</style>
 </head>
 <body>
 <div align="center">

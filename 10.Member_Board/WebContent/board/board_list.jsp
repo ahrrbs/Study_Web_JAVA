@@ -34,24 +34,48 @@ function fnModify(id, member_pw) {
 	/* alert("id : " + id + "\nmember_pw : " + member_pw); */
 	var pw = prompt("비밀번호를 입력하세요 ", "");
 	/* alert("pw : " + pw); */
-	
-	if(member_pw == pw){
-		location.href="memberDetailAction.me";
+ 	
+	if(pw == null){
+		alert("취소");
 	} else {
-		alert("비밀번호 불일치!!!");
-	}0
+		if(member_pw == pw){
+			location.href="memberDetailAction.me";
+		} else {
+			alert("비밀번호 불일치");
+		}
+	} 
+	
+/* 
+	if (pw) {
+		if (member_pw == pw) {
+			location.href = "memberDetailAction.me";
+		} else {
+			alert("비밀번호 불일치!!!");
+		}
+	} else {
+		alert("취소하셨습니다.");
+	} */
+}
+</script>
+<style type="text/css">
+@import url("css/base.css");
+
+#se_td {
+	padding-left: 10px;
 }
 
-</script>
+
+
+</style>
 </head>
 <body>
-<div align="center">
-<h3>전체글 목록 보기</h3>
-<table border="1">
+<div align="center" id="FD">
+<h2>전체글 목록 보기</h2>
+<table border="1" >
 
 	<tr>
 		<th>번호</th>
-		<th width="200">제목</th>
+		<th width="300" >제목</th>
 		<th>작성자</th>
 		<th>작성일</th>
 		<th>조회수</th>
@@ -67,7 +91,7 @@ function fnModify(id, member_pw) {
 	%>
 	<tr align="center">
 		<td><%=dto.getBoard_num() %></td>
-		<td align="left">
+		<td align="left" id="se_td">
 			<%-- <%if(dto.getBoard_re_lev() != 0) {%>
 				<%for(int j=1; j<=(dto.getBoard_re_lev()-1)*2; j++ ){ %>&nbsp;<%} //for2 %>
 			<%} %> --%>
@@ -78,7 +102,10 @@ function fnModify(id, member_pw) {
 				<%=dto.getBoard_subject() %>
 			</a>
 		</td>
-		<td><%=dto.getBoard_id() %></td>
+		
+		<c:if test="${dto.getBoard_id() eq 'admin' }"><td>★관리자★</td>  </c:if>
+		<c:if test="${dto.getBoard_id() ne 'admin' }"><td><%=dto.getBoard_id() %></td></c:if>
+		
 		<td><%=dto.getBoard_date() %></td>
 		<td><%=dto.getBoard_readcount() %></td>
 	</tr>
@@ -143,7 +170,7 @@ function fnModify(id, member_pw) {
 				<input type="button" value="회원관리" onclick="location.href='memberListAction.me'"/>
 			</c:if>
 			<input type="button" value="로그아웃" onclick="location.href='memberLogoutAction.me'"/>
-			<input type="button" value="회원정보수정" onclick="fnModify('<%=id%>', '<%=member_pw%>')"/>
+			<input type="button" value="정보수정" onclick="fnModify('<%=id%>', '<%=member_pw%>')"/>
 			<input type="button" value="글쓰기" onclick="location.href='boardWrite.bo'"/>
 		</td>
 	</tr>

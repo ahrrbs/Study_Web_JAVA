@@ -14,7 +14,7 @@ public class BoardDAO {
 	
 	//DB접속
 	public Connection getConn() {
-		String url = "jdbc:oracle:thin:@127.0.0.1:1521:XE";
+		String url = "jdbc:oracle:thin:@192.168.0.18:1521:XE";
 		String user = "hanul";
 		String password = "0000";
 		try {
@@ -196,11 +196,17 @@ public class BoardDAO {
 	//검색
 	public ArrayList<BoardDTO> boardSearch(SearchDTO sdto) {
 		conn = getConn();
-		String sql = "select * from memberBoard where";
+		/*String sql = "select * from memberBoard where ? like ?";*/
+		
+		String sql = "select * from memberBoard where ";
 		sql += "upper("+sdto.getPart()+") like upper('"+sdto.getSearchData() + "')";
 		ArrayList<BoardDTO> list = new ArrayList<>();
 		try {
 			ps = conn.prepareStatement(sql);
+			
+		/*	ps.setString(1, sdto.getPart());
+			ps.setString(2, sdto.getSearchData());*/
+			
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				BoardDTO dto = new BoardDTO();

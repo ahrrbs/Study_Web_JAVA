@@ -18,7 +18,7 @@ List<MemberDTO> list = (List<MemberDTO>) request.getAttribute("list");
 <title>Member List</title>
 <script type="text/javascript">
 function fnDelete(member_id) {
-/* 	alert(member_id); */
+ 	/* alert(member_id); */ 
 	
 	if(confirm("정말 삭제하시겠습니까??")){
 		location.href = "memberDeleteAction.me?member_id=" + member_id;
@@ -27,6 +27,13 @@ function fnDelete(member_id) {
 }
 
 </script>
+<style type="text/css">
+ @import url("css/base.css");
+ @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+
+ 
+</style>
 </head>
 <body>
 <div align="center">
@@ -44,7 +51,7 @@ function fnDelete(member_id) {
 			<td>
 				<c:if test="${i.member_id eq 'admin' }"> 삭제금지 </c:if>
 				<c:if test="${i.member_id ne 'admin' }">
-						<input type="button" value="삭제" onclick="fnDelete('${i.member_id}')"/>
+						<input type="button" value="삭제" onclick="fnDelete('${i.member_id}')" id="btndelete"/>
 				</c:if>
 			</td>
 		</tr>
@@ -53,7 +60,7 @@ function fnDelete(member_id) {
 	<tr align="center">
 		<td colspan="3">
 			<input type="button" value="로그아웃" onclick="location.href='memberLogoutAction.me'"  />
-			<input type="button" value="개시판 목록보기" onclick="location.href='boardList.bo'"  />
+			<input type="button" value="게시판 목록보기" onclick="location.href='boardList.bo'"  />
 		</td>
 	</tr>
 	

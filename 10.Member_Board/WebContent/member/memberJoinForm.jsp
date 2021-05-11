@@ -32,6 +32,7 @@ $(function() {
 		}//if
 	});//blur_id
 	
+	
 	$("#member_pw").blur(function() {
 		if(!regPw.test(member_pw.value)) {
 			var msg = "숫자, 영문자, 특수문자를 모두 포함해 8~15글자 입니다.";
@@ -124,10 +125,66 @@ function resultHtml_pw(data) {
 	font-size : 0.5em;
 }
 </style>
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+body {
+   background-image: url('images/quokka3.jpg');
+}
+
+#idCheck, #pwCheck, #pwCheck2, #emailCheck {
+   display: block;
+   color: red;
+   text-align: center;
+   font-size : 0.5em;
+}
+
+h3 {
+   font-family: 'Jua', sans-serif;
+   font-size: 2em;
+}
+
+table {
+   width: 500px;
+   height: 500px;
+   background-color: white;
+   border: 2px solid black;
+   padding : 0px;
+   margin: 0px;
+   
+}
+
+table th {
+   width : 25%;
+   background-color: #FFE392;
+}
+
+
+
+table input[type="text"], input[type="password"] {
+   width: 90%;
+   margin-left: 10px;
+}
+
+input[type="number"] {
+   margin-left : 10px;
+}
+
+input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover  {
+   background-color: #FFE392;
+}
+
+input[type="button"], input[type="reset"], input[type="submit"]  {
+   width: 70px;
+   height: 50px;
+   font-family: 'Jua', sans-serif;
+}
+
+</style>
 </head>
 <body>
 <div align="center">
-<h3>[회원가입]</h3>
+<h3>회원가입</h3>
 <form action="memberJoinAction.me" method="post">
 <table border="1">
 	<tr>
